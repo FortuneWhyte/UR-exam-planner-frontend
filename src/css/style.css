@@ -1,0 +1,446 @@
+
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- 2) DESIGN TOKENS (COLORS, SPACING, FONTS) ---------- */
+:root {
+  /* Brand / background colors */
+  --bg: #006400;          /* Dark green main background */
+  --bg-soft: #024024;     /* Slightly darker/tinted green for gradients */
+
+  /* Panel / card colors */
+  --panel: #ffffff;       /* Card background */
+  --panel-soft: #fbfbfb;  /* Slightly off-white */
+
+  /* Text colors */
+  --text: #111827;        /* Main text */
+  --muted: #6b7280;       /* Secondary / helper text */
+
+  /* Accent colors (buttons, links) */
+  --accent: #ffb711;      /* U of R gold/yellow (primary accent) */
+  --accent-soft: #ffe29a; /* Lighter yellow for hovers */
+  --accent-strong: #cc9000;
+
+  /* Borders and radius */
+  --border: #e5e7eb;
+  --radius: 10px;
+
+  /* Layout helpers */
+  --max-width: 960px;
+  --gap: 1rem;
+
+  /* Shadow for cards */
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.1);
+
+  /* Font stack (similar to McGill Scheduler: Inter + system) */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- 3) PAGE BACKGROUND + BASE TYPOGRAPHY ---------- */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: radial-gradient(ellipse at top, var(--bg-soft), var(--bg));
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+/* Main layout wrapper: keeps content centered and not too wide */
+#container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+/* ---------- 4) TOP NAVIGATION BAR (HEADER) ---------- */
+/* Used on: index.html, search.html, calendar.html, addexam.html */
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1.5rem;
+
+  background: rgba(2, 40, 26, 0.96); /* dark green */
+  backdrop-filter: blur(12px);
+  border-radius: 999px; /* “pill” nav bar */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* University logo on the left */
+.logo {
+  height: 36px;
+  width: auto;
+}
+
+/* Right-side nav links */
+.top-nav a {
+  text-decoration: none;
+}
+
+/* Generic navigation button style */
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+
+  color: #f9fafb;
+  background: transparent;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.1s ease;
+}
+
+/* Hover state for normal nav buttons */
+.nav-btn:hover {
+  background: rgba(15, 23, 42, 0.5);
+  border-color: rgba(148, 163, 184, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Primary / CTA nav button: .big-btn (e.g., “View Schedules”) */
+.big-btn {
+  background: var(--accent);
+  color: #1f2933;
+  font-weight: 600;
+  padding-inline: 1.2rem;
+  box-shadow: 0 10px 30px rgba(255, 183, 17, 0.4);
+}
+
+.big-btn:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-strong);
+}
+
+/* ---------- 5) TYPOGRAPHY HELPERS FOR TITLES & TEXT ---------- */
+
+.welcome-title,
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f9fafb;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.welcome-text {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #e5e7eb;
+  text-align: center;
+  max-width: 640px;
+  margin: 0.25rem auto;
+}
+
+/* Long descriptive text inside cards */
+.result-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Accent inline link (e.g., “Course not listed”) */
+.course-not-listed {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.course-not-listed:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 6) MAIN SECTION LAYOUTS ---------- */
+/* Home page dashboard main */
+#dashboard-main,
+#calendar-main,
+#addexam-main,
+#main-center {
+  margin-top: 1rem;
+}
+
+/* Keep main content visually centered in the big green background */
+#dashboard-main,
+#calendar-main,
+#addexam-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+/* Centered content variant (login/signup) */
+#main-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------- 7) UTILITY ALIGNMENT CLASSES ---------- */
+
+.align-middle {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.align-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+/* Simple helper to hide content (used for dynamic behavior later) */
+.hidden {
+  display: none !important;
+}
+
+/* ---------- 8) CARD / PANEL STYLES (USED BY .result-card, FORMS, ETC.) ---------- */
+
+.result-card {
+  background: linear-gradient(145deg, var(--panel), var(--panel-soft));
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Card headers */
+.result-card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+/* Space paragraphs inside cards */
+.result-card p + p {
+  margin-top: 0.4rem;
+}
+
+/* ---------- 9) TABLE STYLING (Calendar exam list) ---------- */
+
+.exam-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.exam-table thead {
+  background: rgba(0, 100, 0, 0.06);
+}
+
+.exam-table th,
+.exam-table td {
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.exam-table th {
+  font-weight: 600;
+  color: #111827;
+}
+
+.exam-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* ---------- 10) SEARCH SECTION (search.html) ---------- */
+
+#search-section {
+  margin-top: 1.25rem;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Wrapper around the input to allow future icons, etc. */
+.search-bar {
+  display: flex;
+  align-items: stretch;
+  background: var(--panel);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  padding: 0.2rem 0.5rem;
+}
+
+/* The main search input */
+#search-input {
+  flex: 1;
+  border: none;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  background: transparent;
+  color: var(--text);
+}
+
+#search-input::placeholder {
+  color: #9ca3af;
+}
+
+#search-input:focus {
+  outline: none;
+}
+
+/* ---------- 11) BUTTONS (generic submit buttons etc.) ---------- */
+/* Re-use same rounded style as nav, but for <input type="submit"> */
+
+input[type="submit"],
+button {
+  border-radius: 999px;
+  border: none;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--accent);
+  color: #1f2933;
+  box-shadow: 0 12px 32px rgba(255, 183, 17, 0.4);
+  transition:
+    background-color 0.18s ease,
+    transform 0.1s ease,
+    box-shadow 0.18s ease;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 16px 38px rgba(255, 183, 17, 0.45);
+}
+
+/* Specific ID from your forms */
+#submit-button {
+  min-width: 120px;
+}
+
+/* ---------- 12) FORM LAYOUT (login & signup) ---------- */
+
+.auth-form {
+  background: linear-gradient(145deg, var(--panel), var(--panel-soft));
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  padding: 1.5rem 1.75rem;
+  max-width: 480px;
+  margin: 2rem auto 0;
+}
+
+/* “Grid” layout for labels/inputs stacked vertically */
+.form-input-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+/* Label styling */
+.form-input-grid label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Text, number, password, and file inputs */
+.form-input-grid input[type="text"],
+.form-input-grid input[type="number"],
+.form-input-grid input[type="password"],
+.form-input-grid input[type="file"] {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.95rem;
+  background: #ffffff;
+  color: var(--text);
+  transition:
+    border-color 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.form-input-grid input[type="text"]:focus,
+.form-input-grid input[type="number"]:focus,
+.form-input-grid input[type="password"]:focus,
+.form-input-grid input[type="file"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(255, 183, 17, 0.35);
+}
+
+/* Error message text beneath inputs */
+.error-text {
+  font-size: 0.8rem;
+  color: #b91c1c;
+}
+
+/* Note under the form (“Don’t have an account?”) */
+.form-note {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+.form-note a {
+  color: var(--accent-soft);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.form-note a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 13) SMALL SCREEN RESPONSIVENESS ---------- */
+
+@media (max-width: 640px) {
+  .top-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-inline: 0.75rem;
+  }
+
+  .logo {
+    height: 30px;
+  }
+
+  #container {
+    padding: 1rem 0.75rem 2.5rem;
+  }
+
+  .auth-form {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .welcome-title,
+  .page-title {
+    font-size: 1.7rem;
+  }
+}
