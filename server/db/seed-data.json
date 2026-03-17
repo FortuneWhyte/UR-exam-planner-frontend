@@ -1,0 +1,339 @@
+{
+  "semesters": [
+    { "name": "Winter 2026", "year": 2026, "term": "Winter" },
+    { "name": "Fall 2025",   "year": 2025, "term": "Fall"   }
+  ],
+  "courses": [
+    {
+      "semester": "Winter 2026",
+      "course_code": "CS 110",
+      "course_name": "Programming and Problem Solving",
+      "section": "001",
+      "instructor": "Dr. Trevor Tomesh",
+      "exam_date": "2026-04-17",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "ED 191"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "CS 115",
+      "course_name": "Object-Oriented Programming",
+      "section": "001",
+      "instructor": "Dr. Chanchal Roy",
+      "exam_date": "2026-04-20",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "CL 125"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "CS 210",
+      "course_name": "Data Structures and Abstractions",
+      "section": "001",
+      "instructor": "Dr. Yiyu Yao",
+      "exam_date": "2026-04-22",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "ED 106"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "CS 215",
+      "course_name": "Web and Mobile App Development",
+      "section": "001",
+      "instructor": "Dr. Raman Paranjape",
+      "exam_date": "2026-04-18",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "ED 106"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "CS 310",
+      "course_name": "Algorithms and Data Structures II",
+      "section": "001",
+      "instructor": "Dr. Sandra Bata",
+      "exam_date": "2026-04-24",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "CL 312"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "CS 330",
+      "course_name": "Database Systems",
+      "section": "001",
+      "instructor": "Dr. Orland Hoeber",
+      "exam_date": "2026-04-27",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "AH 116"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "MATH 110",
+      "course_name": "Calculus I",
+      "section": "001",
+      "instructor": "Dr. Allen Herman",
+      "exam_date": "2026-04-16",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "KIN 168"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "MATH 111",
+      "course_name": "Calculus II",
+      "section": "001",
+      "instructor": "Dr. Reem Yassawi",
+      "exam_date": "2026-04-21",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "KIN 168"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "MATH 122",
+      "course_name": "Linear Algebra I",
+      "section": "001",
+      "instructor": "Dr. Fernando Barrera",
+      "exam_date": "2026-04-23",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "ED 191"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "STAT 160",
+      "course_name": "Introductory Statistics",
+      "section": "001",
+      "instructor": "Dr. Grace Tran",
+      "exam_date": "2026-04-17",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "CL 125"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "ENGL 100",
+      "course_name": "Critical Reading and Writing I",
+      "section": "001",
+      "instructor": "Prof. Sarah Mitchell",
+      "exam_date": "2026-04-16",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "CL 435"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "ENGL 110",
+      "course_name": "Critical Reading and Writing II",
+      "section": "001",
+      "instructor": "Prof. David Park",
+      "exam_date": "2026-04-25",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "HM 4"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "PHYS 109",
+      "course_name": "General Physics I",
+      "section": "001",
+      "instructor": "Dr. Saman Lawandy",
+      "exam_date": "2026-04-20",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "CL 125"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "PHYS 201",
+      "course_name": "Mechanics",
+      "section": "001",
+      "instructor": "Dr. Garth Barrette",
+      "exam_date": "2026-04-28",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "CL 312"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "ECON 100",
+      "course_name": "Introductory Microeconomics",
+      "section": "001",
+      "instructor": "Dr. Jason Childs",
+      "exam_date": "2026-04-19",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "ED 191"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "ECON 101",
+      "course_name": "Introductory Macroeconomics",
+      "section": "001",
+      "instructor": "Dr. Marcel Baribeau",
+      "exam_date": "2026-04-26",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "ED 191"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "PSYC 101",
+      "course_name": "Introduction to Psychology I",
+      "section": "001",
+      "instructor": "Dr. Katherine Chicken",
+      "exam_date": "2026-04-18",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "KIN 168"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "BUS 100",
+      "course_name": "Introduction to Business",
+      "section": "001",
+      "instructor": "Prof. Linda Faye",
+      "exam_date": "2026-04-22",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "ED 191"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "ACCT 100",
+      "course_name": "Introductory Financial Accounting",
+      "section": "001",
+      "instructor": "Prof. Kevin Brown",
+      "exam_date": "2026-04-29",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "AH 116"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "ENSE 271",
+      "course_name": "People-Centred Design",
+      "section": "001",
+      "instructor": "Dr. Timothy Chicken",
+      "exam_date": "2026-04-21",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "ED 106"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "ENSE 374",
+      "course_name": "Software Engineering Management",
+      "section": "001",
+      "instructor": "Dr. Craig Chicken",
+      "exam_date": "2026-04-25",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "CL 312"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "SOST 201",
+      "course_name": "Introduction to Sociology",
+      "section": "001",
+      "instructor": "Dr. JoAnn Episkenew",
+      "exam_date": "2026-04-24",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "HM 4"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "CHEM 104",
+      "course_name": "General Chemistry I",
+      "section": "001",
+      "instructor": "Dr. Brian Sterenberg",
+      "exam_date": "2026-04-27",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "CL 125"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "BIOL 100",
+      "course_name": "Introduction to Biology",
+      "section": "001",
+      "instructor": "Dr. Harold Ferns",
+      "exam_date": "2026-04-19",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "AH 116"
+    },
+    {
+      "semester": "Winter 2026",
+      "course_code": "KIN 170",
+      "course_name": "Human Anatomy",
+      "section": "001",
+      "instructor": "Dr. Patrick Fougere",
+      "exam_date": "2026-04-28",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "KIN 168"
+    },
+
+    {
+      "semester": "Fall 2025",
+      "course_code": "CS 110",
+      "course_name": "Programming and Problem Solving",
+      "section": "001",
+      "instructor": "Dr. Trevor Tomesh",
+      "exam_date": "2025-12-10",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "ED 191"
+    },
+    {
+      "semester": "Fall 2025",
+      "course_code": "CS 210",
+      "course_name": "Data Structures and Abstractions",
+      "section": "001",
+      "instructor": "Dr. Yiyu Yao",
+      "exam_date": "2025-12-13",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "ED 106"
+    },
+    {
+      "semester": "Fall 2025",
+      "course_code": "MATH 110",
+      "course_name": "Calculus I",
+      "section": "001",
+      "instructor": "Dr. Allen Herman",
+      "exam_date": "2025-12-11",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "KIN 168"
+    },
+    {
+      "semester": "Fall 2025",
+      "course_code": "ENGL 100",
+      "course_name": "Critical Reading and Writing I",
+      "section": "001",
+      "instructor": "Prof. Sarah Mitchell",
+      "exam_date": "2025-12-15",
+      "exam_start_time": "14:00",
+      "exam_end_time": "17:00",
+      "location": "CL 435"
+    },
+    {
+      "semester": "Fall 2025",
+      "course_code": "ECON 100",
+      "course_name": "Introductory Microeconomics",
+      "section": "001",
+      "instructor": "Dr. Jason Childs",
+      "exam_date": "2025-12-12",
+      "exam_start_time": "09:00",
+      "exam_end_time": "12:00",
+      "location": "ED 191"
+    }
+  ]
+}
