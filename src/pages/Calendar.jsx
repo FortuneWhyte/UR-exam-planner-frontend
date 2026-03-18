@@ -1,51 +1,90 @@
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
-
+import { getCalendar } from "../services/api";
 
 export default function Calendar() {
-    return (
-        <>
-            <Navbar />
+  const [exams, setExams] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-            <div id="container">
-                    <main id="calendar-main">
+  useEffect(() => {
+    async function fetchCalendar() {
+      try {
+        const data = await getCalendar();
+        setExams(data);
+      } catch (err) {
+        setError(err.message || "Failed to load calendar");
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchCalendar();
+  }, []);
 
-                        <h1 className="welcome-title">Calendar</h1>
+  return (
+    <>
+      <Navbar />
 
-                        
-                        <section id="no-exams" class="result-card">
-                            <p>
-                                No exams in your calendar.
-                            </p>
-                        </section>
+      <div id="container">
+        <main id="calendar-main">
+          <h1 className="welcome-title">Calendar</h1>
 
-                        
-                        <section id="exam-list" className="result-card hidden">
-                            <h2>Upcoming Exams</h2>
+          {/* ── Loading ── */}
+          {loading && (
+            <section className="result-card">
+              <p>Loading your exams...</p>
+            </section>
+          )}
 
-                            <table className="exam-table">
-                                <thead>
-                                    <tr>
-                                        <th>Course</th>
-                                        <th>Instructor</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Location</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                    <tr>
-                                        <td>CS 215</td>
-                                        <td>Dr. Example</td>
-                                        <td>Dec 10, 2025</td>
-                                        <td>9:00 AM – 12:00 PM</td>
-                                        <td>ED 106</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                    </main>
-                </div>
-        </>
-    );
-}    
+          {/* ── Error ── */}
+          {!loading && error && (
+            <section className="result-card error-card">
+              <p>{error}</p>
+            </section>
+          )}
+
+          {/* ── Empty State ── */}
+          {!loading && exams.length === 0 && !error && (
+            <section id="no-exams" className="result-card">
+              <p>
+                No exams in your calendar. Use the Search page to find and add some!
+              </p>
+            </section>
+          )}
+
+          {/* ── Populated State ── */}
+          {!loading && exams.length > 0 && !error && (
+            <section id="exam-list" className="result-card">
+              <h2>Upcoming Exams ({exams.length})</h2>
+
+              <table className="exam-table">
+                <thead>
+                  <tr>
+                    <th>Course</th>
+                    <th>Name</th>
+                    <th>Instructor</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Location</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {exams.map((exam) => (
+                    <tr key={exam.calendar_id}>
+                      <td>{exam.course_code}</td>
+                      <td>{exam.course_name}</td>
+                      <td>{exam.instructor}</td>
+                      <td>{exam.exam_date}</td>
+                      <td>{exam.exam_start_time} – {exam.exam_end_time}</td>
+                      <td>{exam.location}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          )}
+        </main>
+      </div>
+    </>
+  );
+}
