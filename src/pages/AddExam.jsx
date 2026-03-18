@@ -1,45 +1,100 @@
+import { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import {Link} from "react-router-dom";
+import { getCourse, addToCalendar } from "../services/api";
 
 export default function AddExam() {
-    return (
-        <>
-            <Navbar />
+  const { courseId } = useParams();
+  const navigate = useNavigate();
 
-            <div id="container">
-                    <main id="addexam-main">
+  const [course, setCourse] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [adding, setAdding] = useState(false);
 
-                        <h1 className="page-title">Add Exam</h1>
+  useEffect(() => {
+    async function loadCourse() {
+      try {
+        const data = await getCourse(courseId);
+        setCourse(data);
+      } catch (err) {
+        setError(err.message || "Course not found");
+      } finally {
+        setLoading(false);
+      }
+    }
+    if (courseId) loadCourse();
+  }, [courseId]);
 
-                        
-                        <section id="course-found" class="result-card hidden">
-                            <h2>Course Details</h2>
-                            <p><strong>Course:</strong> <span id="found-course-code">CS 215</span></p>
-                            <p><strong>Instructor:</strong> <span id="found-instructor">TBD</span></p>
+  async function handleAdd() {
+    setAdding(true);
+    setError(null);
+    try {
+      await addToCalendar(course.id);
+      navigate("/calendar");
+    } catch (err) {
+      setError(err.message || "Failed to add to calendar");
+      setAdding(false);
+    }
+  }
 
-                            <div class="align-middle">
-                                <Link to="/calendar" id="add-to-calendar-btn" className="nav-btn">
-                                    Add to Calendar
-                                </Link>
-                            </div>
-                        </section>
+  return (
+    <>
+      <Navbar />
 
-                        
-                        <section id="course-not-found" class="result-card">
-                            <h2>Course Not Listed</h2>
-                            <p>
-                                We could not find a matching course from your search.
-                                You can go back to <Link to="/search">Search</Link> and try again.
-                            </p>
+      <div id="container">
+        <main id="addexam-main">
+          <h1 className="page-title">Exam Details</h1>
 
-                            <div class="align-middle">
-                                <Link to="/calendar" id="calendar-btn" class="nav-btn">
-                                    View Calendar
-                                </Link>
-                            </div>
-                        </section>
-                    </main>
-                </div>
-        </>
-    );
+          {/* ── Loading State ── */}
+          {loading && (
+            <section className="result-card">
+              <p>Loading course details...</p>
+            </section>
+          )}
+
+          {/* ── Error / Not Found State ── */}
+          {!loading && error && (
+            <section id="course-not-found" className="result-card error-card">
+              <h2>Action Failed</h2>
+              <p>{error}</p>
+              <div className="align-middle">
+                <Link to="/search" id="calendar-btn" className="nav-btn">
+                  Back to Search
+                </Link>
+                <Link to="/calendar" className="nav-btn" style={{ marginLeft: "1rem" }}>
+                  View Calendar
+                </Link>
+              </div>
+            </section>
+          )}
+
+          {/* ── Course Found State ── */}
+          {!loading && course && !error && (
+            <section id="course-found" className="result-card">
+              <h2>Course Details</h2>
+              <p><strong>Course:</strong> <span>{course.course_code} - {course.course_name}</span></p>
+              <p><strong>Semester:</strong> <span>{course.semester_name}</span></p>
+              <p><strong>Instructor:</strong> <span>{course.instructor}</span></p>
+              <p><strong>Exam Date:</strong> <span>{course.exam_date}</span></p>
+              <p><strong>Time:</strong> <span>{course.exam_start_time} – {course.exam_end_time}</span></p>
+              <p><strong>Location:</strong> <span>{course.location}</span></p>
+
+              <div className="align-middle">
+                <button 
+                  id="add-to-calendar-btn" 
+                  className="big-btn" 
+                  onClick={handleAdd}
+                  disabled={adding}
+                  style={{ cursor: adding ? "not-allowed" : "pointer", opacity: adding ? 0.7 : 1 }}
+                >
+                  {adding ? "Adding..." : "Add to Calendar"}
+                </button>
+              </div>
+            </section>
+          )}
+        </main>
+      </div>
+    </>
+  );
 }
