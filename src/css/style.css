@@ -310,6 +310,46 @@ body {
   outline: none;
 }
 
+/* Search button inside bar */
+#search-btn {
+  border-radius: 999px;
+  border: none;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--accent);
+  color: #1f2933;
+  white-space: nowrap;
+}
+
+#search-btn:hover {
+  background: var(--accent-soft);
+}
+
+/* View button in result table rows */
+.view-btn {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.82rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #1f2933;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.view-btn:hover {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+/* Error card */
+.error-card p {
+  color: #b91c1c;
+  font-weight: 500;
+}
+
 /* ---------- 11) BUTTONS (generic submit buttons etc.) ---------- */
 /* Re-use same rounded style as nav, but for <input type="submit"> */
 

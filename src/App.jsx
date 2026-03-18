@@ -12,7 +12,7 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/search" element={<Search />} />
       <Route path="/calendar" element={<Calendar />} />
-      <Route path="/addexam" element={<AddExam />} />
+      <Route path="/addexam/:courseId" element={<AddExam />} />
       
     </Routes>
   );
