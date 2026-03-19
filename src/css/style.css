@@ -327,6 +327,23 @@ body {
   background: var(--accent-soft);
 }
 
+/* Semester Select Dropdown */
+.semester-select {
+  border: none;
+  border-right: 1px solid #d1d5db;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.95rem;
+  color: #374151;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.semester-select:focus {
+  outline: none;
+}
+
 /* View button in result table rows */
 .view-btn {
   padding: 0.3rem 0.8rem;

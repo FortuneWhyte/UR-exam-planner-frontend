@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { searchCourses } from "../services/api";
+import { searchCourses, getSemesters } from "../services/api";
 
 export default function Search() {
   const [query, setQuery] = useState("");
+  const [semesterId, setSemesterId] = useState("");
+  const [semesters, setSemesters] = useState([]);
+  
   const [results, setResults] = useState([]);
   const [searched, setSearched] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  
   const navigate = useNavigate();
+
+  useEffect(() => {
+    async function loadSemesters() {
+      try {
+        const data = await getSemesters();
+        setSemesters(data);
+      } catch (err) {
+        console.error("Failed to load semesters:", err);
+      }
+    }
+    loadSemesters();
+  }, []);
 
   async function handleSearch(e) {
     e.preventDefault();
@@ -25,7 +41,7 @@ export default function Search() {
     setSearched(true);
 
     try {
-      const data = await searchCourses(trimmed);
+      const data = await searchCourses(trimmed, semesterId || null);
       setResults(data);
     } catch (err) {
       setError(err.message || "Something went wrong.");
@@ -58,6 +74,16 @@ export default function Search() {
           <div id="search-section">
             <form onSubmit={handleSearch} className="search-form">
               <div className="search-bar">
+                <select 
+                  className="semester-select"
+                  value={semesterId} 
+                  onChange={(e) => setSemesterId(e.target.value)}
+                >
+                  <option value="">All Semesters</option>
+                  {semesters.map(s => (
+                    <option key={s.id} value={s.id}>{s.name}</option>
+                  ))}
+                </select>
                 <input
                   type="text"
                   id="search-input"
