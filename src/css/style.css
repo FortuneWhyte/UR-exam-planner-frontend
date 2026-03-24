@@ -257,7 +257,20 @@ body {
 .exam-table td {
   text-align: left;
   padding: 0.55rem 0.75rem;
+  /* border-bottom moved to tbody tr */
+}
+
+.exam-table tbody tr {
   border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+.exam-table tbody tr:hover {
+  background-color: #fce7f3; /* very light pink/accent based on the university color scheme */
+}
+
+.exam-table tbody tr:last-child {
+  border-bottom: none;
 }
 
 .exam-table th {
