@@ -32,7 +32,10 @@ export default function Calendar() {
           {/* ── Loading ── */}
           {loading && (
             <section className="result-card">
-              <p>Loading your exams...</p>
+              <div className="spinner-container">
+                <div className="spinner"></div>
+                <p className="spinner-text">Loading your exams...</p>
+              </div>
             </section>
           )}
 

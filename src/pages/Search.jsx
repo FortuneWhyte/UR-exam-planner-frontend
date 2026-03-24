@@ -108,7 +108,10 @@ export default function Search() {
           {/* ── Loading ── */}
           {loading && (
             <section className="result-card">
-              <p>Searching…</p>
+              <div className="spinner-container">
+                <div className="spinner"></div>
+                <p className="spinner-text">Searching courses...</p>
+              </div>
             </section>
           )}
 

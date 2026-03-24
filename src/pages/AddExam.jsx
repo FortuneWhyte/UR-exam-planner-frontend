@@ -49,7 +49,10 @@ export default function AddExam() {
           {/* ── Loading State ── */}
           {loading && (
             <section className="result-card">
-              <p>Loading course details...</p>
+              <div className="spinner-container">
+                <div className="spinner"></div>
+                <p className="spinner-text">Loading course details...</p>
+              </div>
             </section>
           )}
 
