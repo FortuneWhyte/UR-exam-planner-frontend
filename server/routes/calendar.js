@@ -57,4 +57,23 @@ router.post("/", (req, res) => {
   }
 });
 
+// ── DELETE /api/calendar/:id ───────────────────────────────
+// Remove an exam from the user's calendar
+router.delete("/:id", (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const result = db.prepare("DELETE FROM user_calendar WHERE id = ?").run(id);
+
+    if (result.changes === 0) {
+      return res.status(404).json({ error: "Calendar entry not found" });
+    }
+
+    res.json({ message: "Exam removed from calendar" });
+  } catch (err) {
+    console.error("Remove from calendar error:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 export default router;
